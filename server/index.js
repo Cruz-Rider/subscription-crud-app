@@ -66,6 +66,14 @@ app.post('api/add_client', async (req, res) => {
     })
 })
 
+// Update Client Data
+
+
+// Delete Client
+app.delete('api/client_data/:id', async (req, res) => {
+  await db.query('DELETE FROM clients WHERE id = ?', [req.params.id]);
+})
+
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
