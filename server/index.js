@@ -57,24 +57,25 @@ app.get('/api/client_data', async (req, res) => {
     db.query('SELECT * FROM clients', (err, result) => {
     res.json(result);
   })
-})
+});
 
 // Create New Client
 app.post('api/add_client', async (req, res) => {
-    const {name, email, mobile_number, address, start_date, end_date} = req.body;
+    const {name, email, mobile_number, address, start_date, end_date, password} = req.body;
     
-    db.query('INSERT INTO clients (name, email, mobile_number, address, subscription_start_date, subscription_end_date) VALUE (?, ?, ?, ?, ?, ?)', [name, email, mobile_number, address, start_date, end_date], (err, result) => {
+    db.query('INSERT INTO clients (name, email, mobile_number, address, subscription_start_date, subscription_end_date, password) \
+      VALUE (?, ?, ?, ?, ?, ?)', [name, email, mobile_number, address, start_date, end_date], (err, result) => {
     res.json(result);
   })
-})
+});
 
 // Update Client Data
 
 
 // Delete Client
 app.delete('api/client_data/:id', async (req, res) => {
-  db.query('DELETE FROM clients WHERE id = ?', [req.params.id]);
-})
+  db.query('DELETE FROM clients WHERE id = ?', [req.params.id])
+});
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);

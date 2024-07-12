@@ -1,10 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ClientList = () => {
   const [clientData, setClientData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,8 +29,7 @@ const ClientList = () => {
   }, []);
 
   const handleEdit = (id) => {
-    // Implement logic to handle edit functionality (e.g., navigate to edit page)
-    console.log('Edit client:', id);
+    navigate('/edit_client');
   };
 
   const handleDelete = async (id) => {
@@ -46,6 +48,7 @@ const ClientList = () => {
     <table className="table table-hover">
       <thead className="table-info">
         <tr>
+          <th>Client ID</th>
           <th>Name</th>
           <th>Actions</th>
         </tr>
@@ -66,6 +69,7 @@ const ClientList = () => {
         ) : (
           clientData.map((client) => (
             <tr key={client.id}>
+              <td>{client.id}</td>
               <td>{client.name}</td>
               <td>
                 <button className="btn btn-sm btn-primary mx-2" onClick={() => handleEdit(client.id)}>
