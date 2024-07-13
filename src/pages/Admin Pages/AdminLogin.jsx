@@ -37,30 +37,32 @@ const AdminLogin = () => {
     <div className='vh-100 vw-100 d-flex align-items-center justify-content-center'>
       <div className='card bg-info w-25 h-50'>
         <div className='card-header text-center'>ADMIN LOGIN</div>
-        <form className='card-body d-flex flex-column gap-2 justify-content-center' onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="email">Email:</label>
+        <form className='card-body' onSubmit={handleSubmit}>
+          <div className='mb-3'>
+            <label htmlFor="email" className='form-label'>Email:</label>
             <input
               type="email"
               name="email"
               id="email"
+              className='form-control'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="password">Password:</label>
+          <div className='mb-5'>
+            <label htmlFor="password" className='form-label'>Password:</label>
             <input
               type="password"
               name="password"
               id="password"
+              className='form-control'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-success w-100">
             Login
           </button>
         </form>

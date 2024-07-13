@@ -1,6 +1,6 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ClientList = () => {
   const [clientData, setClientData] = useState([]);
@@ -15,11 +15,13 @@ const ClientList = () => {
       setError(null);
 
       try {
-        const response = await axios.get('http://localhost:3001/api/client_data');
+        const response = await axios.get(
+          "http://localhost:3001/api/client_data"
+        );
         setClientData(response.data);
       } catch (err) {
-        console.error('Error fetching client data:', err);
-        setError('Failed to load client data. Please try again later.');
+        console.error("Error fetching client data:", err);
+        setError("Failed to load client data. Please try again later.");
       } finally {
         setIsLoading(false);
       }
@@ -29,17 +31,19 @@ const ClientList = () => {
   }, []);
 
   const handleEdit = (id) => {
-    navigate('/edit_client');
+    navigate("/edit_client");
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm('Are you sure you want to delete this client?')) {
+    if (window.confirm("Are you sure you want to delete this client?")) {
       try {
-        const response = await axios.delete(`http://localhost:3001/api/client_data/${id}`);
+        const response = await axios.delete(
+          `http://localhost:3001/api/client_data/${id}`
+        );
         setClientData(clientData.filter((client) => client.id !== id));
       } catch (err) {
-        console.error('Error deleting client:', err);
-        setError('Failed to delete client. Please try again later.');
+        console.error("Error deleting client:", err);
+        setError("Failed to delete client. Please try again later.");
       }
     }
   };
@@ -48,7 +52,7 @@ const ClientList = () => {
     <table className="table table-hover">
       <thead className="table-info">
         <tr>
-          <th>Client ID</th>
+          <th>S. No.</th>
           <th>Name</th>
           <th>Actions</th>
         </tr>
@@ -67,15 +71,21 @@ const ClientList = () => {
             </td>
           </tr>
         ) : (
-          clientData.map((client) => (
+          clientData.map((client, index) => (
             <tr key={client.id}>
-              <td>{client.id}</td>
+              <td>{index + 1}</td>
               <td>{client.name}</td>
               <td>
-                <button className="btn btn-sm btn-primary mx-2" onClick={() => handleEdit(client.id)}>
+                <button
+                  className="btn btn-sm btn-primary mx-2"
+                  onClick={() => handleEdit(client.id)}
+                >
                   Edit
                 </button>
-                <button className="btn btn-sm btn-danger mx-2" onClick={() => handleDelete(client.id)}>
+                <button
+                  className="btn btn-sm btn-danger mx-2"
+                  onClick={() => handleDelete(client.id)}
+                >
                   Delete
                 </button>
               </td>
