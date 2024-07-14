@@ -57,7 +57,7 @@ const ClientMaster = () => {
           formData
         );
         console.log("Client Added Successfully", response.data);
-        navigate("/admin_dashboard");
+        navigate('/admin_dashboard');
       } catch (err) {
         console.error(err);
       } finally {

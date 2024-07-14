@@ -56,11 +56,26 @@ app.post('/api/login', async (req, res) => {
 });
 
 
-// GET Client Data 
+// GET All Client Data 
 app.get('/api/client_data', async (req, res) => {
     db.query('SELECT * FROM clients', (err, result) => {
     res.json(result);
   })
+});
+
+// GET Client Data with ID
+app.get('/api/client_data/:id', async (req, res) => {
+  try {
+    db.query('SELECT FROM clients WHERE id = ?', [req.params.id], (err, result) => {
+    if(err) {
+      res.status(401).json(err);
+    }
+      res.status(200).json(result);
+    })
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 });
 
 
