@@ -100,8 +100,8 @@ const ClientMaster = () => {
       <input
         type="tel"
         className="form-control mb-3"
-        id="mobileNumber"
-        name="mobileNumber"
+        id="mobile_number"
+        name="mobile_number"
         value={formData.mobile_number}
         placeholder="Mobile Number"
         onChange={handleChange}
@@ -125,8 +125,8 @@ const ClientMaster = () => {
           <input
             type="date"
             className="form-control"
-            id="startDate"
-            name="startDate"
+            id="start_date"
+            name="start_date"
             value={formData.start_date}
             onChange={handleChange}
             required
@@ -139,8 +139,8 @@ const ClientMaster = () => {
           <input
             type="date"
             className="form-control"
-            id="endDate"
-            name="endDate"
+            id="end_date"
+            name="end_date"
             value={formData.end_date}
             min={formData.start_date}
             onChange={handleChange}
