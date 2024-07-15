@@ -4,7 +4,7 @@
   "description": "backend for subscription-crud-app",
   "main": "index.js",
   "scripts": {
-    "seed admin": "node seeder/admin_seeder.js",
+    "seed_admin": "node seeder/admin_seeder.js",
     "start": "nodemon index.js"
   },
   "author": "Shishir",
