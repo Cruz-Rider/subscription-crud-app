@@ -104,7 +104,29 @@ app.post('/api/add_client', async (req, res) => {
 });
 
 // Update Client Data
+app.put('/api/client_data/:id', async(req, res) => {
+  const {name, email, mobile_number, address, start_date, end_date, password} = req.body;
+    
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    console.log(hashedPassword);
 
+    try {
+      db.query('UPDATE clients SET name = ?, email = ?, mobile_number = ?, address = ?, subscription_start_date = ?, \
+        subscription_end_date = ?, password = ? WHERE id = ?', 
+        [name, email, mobile_number, address, start_date, end_date, hashedPassword, req.params.id], (err, result) => {
+        
+          if(err) {
+            console.error(err.message);
+            res.status(401).json(err)
+          }
+            res.status(200).json(result);
+        })
+      } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ message: "Internal Server Error" });
+      }
+})
 
 // Delete Client
 app.delete('/api/client_data/:id', async (req, res) => {
