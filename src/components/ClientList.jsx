@@ -28,7 +28,6 @@ const ClientList = () => {
   }, []);
 
   const handleEdit = (id) => {
-    setIsEditing(true);
     setClientData(clientData.filter((client) => client.id === id));
   };
 
@@ -121,7 +120,7 @@ const ClientList = () => {
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Modal title
+                Edit Client
               </h1>
               <button
                 type="button"
@@ -130,7 +129,9 @@ const ClientList = () => {
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">...</div>
+            <div class="modal-body">
+              
+            </div>
             <div class="modal-footer">
               <button
                 type="button"
