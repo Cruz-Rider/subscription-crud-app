@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Subscription CRUD App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React application for managing subscriptions. It allows admin to create, read, update, and delete subscriptions.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Create** new subscriptions with client details, start and end dates, and password.
+- **View** a list of existing subscriptions with basic client information.
+- **Edit** existing subscriptions (details, dates, password).
+- **Delete** subscriptions.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Clone the repository:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+git clone https://github.com/Cruz-Rider/subscription-crud-app.git
+```
 
-### `npm test`
+### Install dependencies:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install
+```
 
-### `npm run build`
+### Run the development server:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This will start the development server for the frontend and open the application in your browser (usually at http://localhost:3000).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Run the backend service:
 
-### `npm run eject`
+```bash
+cd server
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Seed the Databse for Admin using adminSeeder:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+cd server
+npm run seed_admin
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Create a new subscription:
 
-## Learn More
+1. Visit the application in your browser.
+2. Click on Admin (As of now only Admin Login is available)
+3. Fill the Login credentials as:
+     email: hello@wel.com
+     pass: PaSsWoRd
+4. Now you can Add new Client from the Client Master after filling all the details.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### View existing subscriptions:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- The application will display a list of existing subscriptions with basic client information.
 
-### Code Splitting
+### Edit a subscription:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Click the "Edit" button for the desired subscription.
+2. Edit the details, dates, or password as needed.
+3. Click the "Save Changes" button to update the subscription.
 
-### Analyzing the Bundle Size
+### Delete a subscription:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Click the "Delete" button for the desired subscription.
+2. Confirm the deletion in the popup window.
 
-### Making a Progressive Web App
+## Technology Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- ReactJS
+- Node.js (Express.js)
+- MySQL
+- Bootstrap
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License (see LICENSE file for details).
